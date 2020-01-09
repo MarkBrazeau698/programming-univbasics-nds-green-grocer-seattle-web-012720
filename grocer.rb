@@ -92,7 +92,7 @@ def checkout(cart, coupons)
   # * apply_coupons
   # * apply_clearance
   
-  consolidated_cart = consolidate_cart(cart)
+  consolidated_cart = consolidate_cart(cart, coupons)
   couponed_cart = apply_coupons(consolidated_cart)
   final_cart = apply_clearance(couponed_cart)
   
@@ -103,7 +103,7 @@ def checkout(cart, coupons)
     counter += 1
   end
   if total > 100
-    total - (total - 0.10)
+    total - (total * 0.10)
   end
   total
 end
